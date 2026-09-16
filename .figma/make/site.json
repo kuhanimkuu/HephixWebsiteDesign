@@ -1,0 +1,10 @@
+{
+  "description": "This web application offers a user-friendly platform for designing and customizing websites, empowering users to create professional online presences effortlessly.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

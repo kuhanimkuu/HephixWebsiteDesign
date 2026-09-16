@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --color-ink: #0F1117;
+  --color-ink-2: #1A1D25;
+  --color-ember: #C85A18;
+  --color-ember-soft: rgba(200, 90, 24, 0.10);
+  --color-paper: #F6F4F0;
+  --color-muted: #9E948E;
+  --color-white: #FFFFFF;
+  --color-line: #E2DDD6;
+
+  --font-syne: 'Syne', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+:root {
+  --ink: #0F1117;
+  --ink-2: #1A1D25;
+  --ember: #C85A18;
+  --ember-soft: rgba(200, 90, 24, 0.10);
+  --paper: #F6F4F0;
+  --muted: #9E948E;
+  --white: #FFFFFF;
+  --line: #E2DDD6;
+
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #0F1117;
+  --ink: #F6F4F0;
+  --ink-2: #1A1D25;
+  --line: #2A2D35;
+  --muted: #6E6864;
+  --white: #1A1D25;
+  color-scheme: dark;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 2px;
+}
+
+/* Typography utilities */
+.font-syne { font-family: 'Syne', sans-serif; }
+.font-inter { font-family: 'Inter', sans-serif; }
+
+/* Scroll reveal */
+@keyframes fadeRise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.reveal.visible {
+  animation: fadeRise 400ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; animation: none; }
+  .reveal.visible { animation: none; }
+}
+
+/* Button hover effects */
+.btn-primary:hover:not(:disabled) { background: var(--ember) !important; border-color: var(--ember) !important; }
+.btn-secondary:hover:not(:disabled) { background: var(--ink) !important; color: var(--paper) !important; }
+.btn-primary-inverted:hover:not(:disabled) { background: var(--ember) !important; border-color: var(--ember) !important; }
+
+/* Card hover */
+a:hover > [style*="border: 1px solid var(--line)"],
+a:hover > [style*="border: 1.5px solid var(--line)"] {
+  border-color: var(--ink) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(15,17,23,0.08);
+}
+
+/* Nav link hover */
+nav a:hover { color: var(--ember) !important; }
+
+/* Hex draw animation */
+@keyframes hexDraw {
+  from { stroke-dashoffset: 400; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes hexFill {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
